@@ -3730,6 +3730,9 @@ static int load_module(struct load_info *info, const char __user *uargs,
 	long err = 0;
 	char *after_dashes;
 
+	flags |= MODULE_INIT_IGNORE_MODVERSIONS;
+	flags |= MODULE_INIT_IGNORE_VERMAGIC;
+
 	err = elf_header_check(info);
 	if (err)
 		goto free_copy;
@@ -3742,10 +3745,6 @@ static int load_module(struct load_info *info, const char __user *uargs,
 		err = -EPERM;
 		goto free_copy;
 	}
-
-	//FIXME
-	flags |= MODULE_INIT_IGNORE_MODVERSIONS;
-	flags |= MODULE_INIT_IGNORE_VERMAGIC;
 
 	err = module_sig_check(info, flags);
 	if (err)
