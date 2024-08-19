@@ -3806,6 +3806,8 @@ static int _ovl_fence_release_callback(unsigned long userdata)
 	disp_pm_qos_set_ovl_bw(in_fps, out_fps, &bandwidth);
 	disp_pm_qos_update_bw(bandwidth);
 #endif
+	if (primary_display_is_video_mode())
+		primary_display_wakeup_pf_thread();
 
 		/*ToDo: ARR consider whether add lock*/
 	if (primary_display_is_support_ARR()) {
