@@ -40,7 +40,6 @@
 // TODO
 #define FSM_CALIB_SAVE_PATH "/mnt/vendor/persist/audio"
 #ifndef BIT
-#define BIT(nr)       (1UL << (nr))
 #endif
 
 /* scenes defination */
