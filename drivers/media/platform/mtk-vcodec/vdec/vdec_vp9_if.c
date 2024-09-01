@@ -216,7 +216,8 @@ static struct vdec_fb *vp9_rm_from_fb_use_list(struct vdec_vp9_inst
 			break;
 		}
 	}
-	return fb;
+
+	return NULL;
 }
 
 static void vp9_add_to_fb_free_list(struct vdec_vp9_inst *inst,
